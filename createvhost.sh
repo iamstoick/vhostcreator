@@ -1,9 +1,10 @@
 #!/bin/bash
-
+#
+# Virtual Host creator for debian-based system.
 # Written by: Gerald Z. Villorente
 # This piece of code is for creating virtual host entry.
 # I used this to create vhost under my Ubuntu/Apache environment.
-
+#
 # HowTo:
 # This file should be executable in order to make it working.
 # You can use chmod a+x createvhost.sh.
