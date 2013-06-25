@@ -29,6 +29,14 @@ help() {
   exit 1
 }
 
+# Validate that we run this script as sudoer.
+ROOT_UID=0
+EXECUTOR_ID=$(id -u)
+if [ "$EXECUTOR_ID" -ne "$ROOT_UID" ]; then
+  echo "Must be run as sudoer."
+  exit 0
+fi
+
 # Check if the parameter is help.
 # Display the help if true.
 if [ "$1" == "--help" ]; then
