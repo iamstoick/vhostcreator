@@ -83,10 +83,7 @@ fi
 touch /etc/apache2/sites-available/$1
 
 # Insert the configuration.
-echo "<VirtualHost *:80>
-   ServerName $fakeDomain
-   DocumentRoot $projectPath
-</VirtualHost>" > /etc/apache2/sites-available/$1
+echo -e "<VirtualHost *:80> \n\tServerName $fakeDomain \n\tDocumentRoot $projectPath \n</VirtualHost>" > /etc/apache2/sites-available/$1
 
 #Update hosts file
 echo "127.0.0.1  $fakeDomain" >> /etc/hosts
