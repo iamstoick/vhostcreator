@@ -69,9 +69,10 @@ else
     echo "Give me the correct path!"
     read path
     if [ ! -d "$path" ]; then
-      projectPath=$path
-    else
+      echo "Please check the correct path and run the script again."
       exit 1
+    else
+      projectPath=$path
     fi
   else 
     projectPath=$3
