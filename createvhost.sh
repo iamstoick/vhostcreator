@@ -18,8 +18,8 @@ help() {
   echo ""
   echo "This piece of code is for creating virtual host entry."
   echo ""
-  echo "Usage: ./createvhost.sh [projectName] [fakeDomain] [projectPath]"
-  echo "Ex: ./createvhost.sh mydrupalblog dev.mydrupalblog.com /home/gerald/dev/html/drupalblog"
+  echo "Usage: sudo ./createvhost.sh [projectName] [fakeDomain] [projectPath]"
+  echo "Ex: sudo ./createvhost.sh mydrupalblog dev.mydrupalblog.com /home/gerald/dev/html/drupalblog"
   echo ""
   echo ""
   echo "Arguments:"  
@@ -46,26 +46,33 @@ fi
 
 # Validate the first parameter.
 if [ -z "$1" ]; then
-  echo "Please check your first parameter, it appears to be empty. Read the guide using ./createvhost.sh --help"
+  echo "Please check your first parameter, it appears to be empty. Read the guide using sudo ./createvhost.sh --help"
 else 
   projectName=$1
 fi
 
 # Validate the second parameter.
 if [ -z "$2" ]; then
-  echo "Please check your second parameter, it appears to be empty. Read the guide using ./createvhost.sh --help"
+  echo "Please check your second parameter, it appears to be empty. Read the guide using sudo ./createvhost.sh --help"
 else  
   fakeDomain=$2
 fi
 
 # Validate the third parameter.
 if [ -z "$3" ]; then
-  echo "Please check your third parameter, it appears to be empty. Read the guide using ./createvhost.sh --help"
+  echo "Please check your third parameter, it appears to be empty. Read the guide using sudo ./createvhost.sh --help"
 else
   # Validate if path does exist.
   if [ ! -d "$3" ]; then
     echo "The path you specified does not exist."
-    exit 1
+    echo ""
+    echo "Give me the correct path!"
+    read path
+    if [ ! -d "$path" ]; then
+      projectPath=$path
+    else
+      exit 1
+    fi
   else 
     projectPath=$3
   fi
