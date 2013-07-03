@@ -68,6 +68,9 @@ else
     echo ""
     echo "Give me the correct path!"
     read path
+    # TODO - Create a function that will check and read the user input.
+    # This function will be useful so the user dont need to re-run the
+    # script again. 
     if [ ! -d "$path" ]; then
       echo "Please check the correct path and run the script again."
       exit 1
