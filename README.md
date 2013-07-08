@@ -15,4 +15,4 @@ How to Use:
 
 See the help for more info:
 
--- ./createvhost.sh --help
+-- sudo ./createvhost.sh --help
